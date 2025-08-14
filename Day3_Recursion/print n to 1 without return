@@ -1,0 +1,5 @@
+def recursion_N_1(n):
+    if n !=0:
+        print(n)
+        recursion(n-1)
+recursion(10)
