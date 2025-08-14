@@ -1,0 +1,8 @@
+#print n to 1 and 1 to n using backtracking recursion
+def recursion_N_1_1_N(n):
+    if n ==0:
+        return
+    print(n)
+    recursion(n-1)
+    print(n)
+recursion(100)
