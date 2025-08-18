@@ -1,0 +1,24 @@
+def subset(nums,target):
+    nums.sort(reverse=True) #ordering
+    res=[]
+    def backtrack(start , path , sum):
+        if sum == target:  #constrains
+            res.append(path[:])
+            return
+        for i in range(start,len(nums)):
+            if sum + nums[i]>target:  #pruning(cutting branches)
+                continue
+            path.append(nums[i])
+            backtrack(i+1,path,sum+nums[i])
+            path.pop()
+
+
+    backtrack(0,[],0)
+    return res
+    
+
+
+nums=[2,3,5,7]
+target=10
+res=subset(nums,target)
+print(res)
