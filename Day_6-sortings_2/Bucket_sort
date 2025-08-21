@@ -1,0 +1,17 @@
+def bucket(arr):
+    n=len(arr)
+    bucket_list=[[]for i in range (n)]
+    for value in arr:
+        index=int(value*n)
+        bucket_list[index].append(value)
+    for sub_list in bucket_list:
+        if len(sub_list)>1:
+            sub_list.sort()
+    res=[]
+    for i in bucket_list:
+        res.extend(i)   #extend calls every element
+    print(res)
+        
+
+arr=[0.34,0.45,0.24,0.50,0.98,0.87]
+bucket(arr)
