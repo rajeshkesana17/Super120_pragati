@@ -1,0 +1,31 @@
+def checker(max_dis,stalls,cows):
+    cow,last_cow=1,stalls[0]
+    for distance in stalls[1:]:
+        if distance - last_cow >= max_dis:
+            cow+=1
+            last_cow=distance
+            if cow>=cows:
+                return True
+    return False
+def allocate_stalls(stalls,cows):
+    n=len(stalls)
+    stalls.sort()
+    min , max= 0,stalls[-1]-stalls[0]
+    l=min
+    r=max
+    ans=0
+    while l<=r:
+        mid=(l+r)//2
+        if checker(mid,stalls,cows):
+            ans=mid
+            l=mid+1
+        else:
+            r=mid-1
+    return ans
+
+
+
+stalls=[1, 2, 4, 8, 9]
+cows=3
+res=allocate_stalls(stalls,cows)
+print(res)
