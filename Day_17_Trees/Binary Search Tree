@@ -1,0 +1,32 @@
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+class BST:
+    def __init__(self):
+        self.root = None
+
+    def insert(self, root, value):
+        if root is None:
+            return Node(value)
+        if value < root.value:
+            root.left = self.insert(root.left, value)
+        else:
+            root.right = self.insert(root.right, value)
+        return root
+
+    def inorder(self, root):
+        if root:
+            self.inorder(root.left)
+            print(root.value, end=" ")
+            self.inorder(root.right)
+
+arr = [5, 3, 9, 1, 4, 7, 10, 11]
+obj = BST()
+for n in arr:
+    obj.root = obj.insert(obj.root, n)
+
+print("Inorder Traversal of BST:")
+obj.inorder(obj.root)   
