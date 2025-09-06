@@ -1,0 +1,37 @@
+class node:
+    def __init__(self,value,left=None,right=None):
+        self.value=value
+        self.left=left
+        self.right=right
+
+
+def inorder_trav(root):
+    if root:
+        inorder_trav(root.left)
+        print(root.value,end=" ")
+        inorder_trav(root.right)
+
+def preorder_trav(root):
+    if root:
+        print(root.value,end=" ")
+        preorder_trav(root.left)
+        preorder_trav(root.right)
+
+def postorder_trav(root):
+     if root:
+        postorder_trav(root.left)
+        postorder_trav(root.right)
+        print(root.value,end=" ")
+
+
+root = node(5)
+root.left=node(3)
+root.right=node(9)
+root.left.left=node(1)
+root.left.right=node(4)
+root.left.right.left=node(11)
+root.right.left=node(7)
+root.right.right=node(0)
+inorder_trav(root,)
+preorder_trav(root)
+postorder_trav(root)
