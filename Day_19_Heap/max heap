@@ -1,0 +1,11 @@
+
+import heapq
+arr=[9,5,6,19,28,15]
+arr=[ -i for i in arr]
+print(arr)
+heapq.heapify(arr)
+heapq.heappush(arr,2)
+print(arr)
+print(heapq.heappop(arr))
+print(arr)
+print(heapq.nlargest(3,arr))
