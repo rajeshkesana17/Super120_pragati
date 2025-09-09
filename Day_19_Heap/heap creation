@@ -1,0 +1,4 @@
+import heapq
+arr=[9,5,6,19,28,15]
+heapq.heapify(arr)
+print(arr)
